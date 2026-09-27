@@ -1,0 +1,430 @@
+<!doctype html>
+<!--
+  Kit de arranque - Asociación de Medicina Respiratoria de Ecuatorianos en Argentina
+  Asistente de una pantalla por paso, mobile-first (se abre desde WhatsApp, en celular).
+  Sistema neutro premium, listo para re-brandear cuando lleguen el logo y los colores reales:
+  todo se cambia desde las variables de styles.css.
+  Sin emojis, sin clichés médicos, sin dependencias salvo la tipografía.
+-->
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kit de arranque | Asociación de Medicina Respiratoria de Ecuatorianos en Argentina</title>
+  <meta name="description" content="Completá en 5 a 10 minutos los datos que necesitamos para arrancar con la web de la asociación. Se guarda solo y lo podés retomar cuando quieras.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F5F6F4">
+  <meta name="color-scheme" content="light">
+
+  <!-- Open Graph: para que se vea prolijo si el link se comparte -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Kit de arranque - Asociación de Medicina Respiratoria de Ecuatorianos en Argentina">
+  <meta property="og:description" content="Datos, textos y agenda para arrancar con la web de la asociación. Toma 5 a 10 minutos y se guarda solo.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101817'/%3E%3Crect x='17' y='17' width='30' height='30' rx='9' fill='%230D4C41'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Barra fija: marca + estado de guardado + progreso -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <span class="wordmark">Kit de arranque</span>
+      <div class="topbar__meta">
+        <span id="save-state" class="save-state" aria-live="polite"></span>
+        <span id="paso-label" class="paso-label">Paso 1 de 10</span>
+      </div>
+    </div>
+    <div class="progress" id="progress" role="progressbar" aria-label="Progreso del kit"
+         aria-valuemin="1" aria-valuemax="10" aria-valuenow="1" aria-valuetext="Paso 1 de 10">
+      <div class="progress__fill" id="progress-fill"></div>
+    </div>
+  </header>
+
+  <main id="contenido" class="wrap">
+    <p id="sr-status" class="sr-only" role="status" aria-live="polite"></p>
+    <p id="resume-note" class="resume-note" hidden>Retomamos donde lo dejaste. Todo lo que ya escribiste sigue acá.</p>
+
+    <noscript>
+      <p class="note">Este kit necesita JavaScript activado para funcionar. Probá abrir el link en Chrome o Safari, o escribinos por WhatsApp y lo completamos juntos.</p>
+    </noscript>
+
+    <!-- ============ PASO 1: bienvenida + quién completa ============ -->
+    <section class="step is-active" data-step="1" aria-labelledby="t1">
+      <div class="colorblock">
+        <p class="colorblock__org">Asociación de Medicina Respiratoria de Ecuatorianos en Argentina</p>
+        <h1 id="t1" class="colorblock__title" tabindex="-1">Kit de arranque</h1>
+        <p class="colorblock__lead">Arrancamos con la web de la asociación y este kit nos ayuda a juntar todo lo que necesitamos para empezar.</p>
+        <p class="colorblock__lead">Son 10 pasos cortos, entre 5 y 10 minutos. Todo se guarda solo: si lo dejás y volvés más tarde, seguís donde estabas.</p>
+      </div>
+
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" tabindex="-1">Quién completa el kit</h2>
+          <p class="step__hint">Lo único obligatorio es tu nombre. El resto lo podés dejar en blanco y completarlo más adelante.</p>
+
+          <div class="field">
+            <label class="field__label" for="f-nombre">Tu nombre</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" aria-describedby="e-nombre">
+            <p class="error" id="e-nombre" role="alert" hidden>Necesitamos un nombre para saber quién completó el kit.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-rol">Tu rol o institución <span class="opt-note">(opcional)</span></label>
+            <input id="f-rol" name="rol" type="text" autocomplete="organization-title">
+            <p class="hint">Por ejemplo: presidente, secretario, tesorero.</p>
+          </div>
+
+          <p class="note">El logo, el manual de marca y los PDF no se suben acá. Al final te pasamos un botón de WhatsApp para mandarlos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 2: identidad ============ -->
+    <section class="step" data-step="2" aria-labelledby="t2" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t2" tabindex="-1">Cómo se llaman en corto</h2>
+          <p class="step__hint">La sigla es lo que va a ir en el dominio de la web y en los mails de la asociación.</p>
+
+          <div class="field">
+            <label class="field__label" for="f-sigla">Sigla o nombre corto <span class="opt-note">(opcional)</span></label>
+            <input id="f-sigla" name="sigla" type="text" autocapitalize="characters" autocomplete="off" placeholder="AMREA">
+            <p class="hint">El nombre corto con el que se identifican. Si todavía no lo definieron, lo vemos después.</p>
+            <p class="hint hint--live" id="sigla-preview" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-dominio">¿Qué nombre les gustaría para la página web? <span class="opt-note">(opcional)</span></label>
+            <input id="f-dominio" name="dominio" type="text" autocapitalize="none" autocomplete="off" placeholder="amrea.org.ar">
+            <p class="hint">El dominio, por ejemplo amrea.org.ar o asociacionrespiratoria.org. Si tienen 2 o 3 opciones que les gusten, mejor.</p>
+          </div>
+
+          <fieldset class="field">
+            <legend class="field__label">¿Tienen manual de marca?</legend>
+            <p class="hint hint--tight">Es el documento donde están el logo, los colores y cómo se usan.</p>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="manual_marca" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="manual_marca" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="manual_marca" value="No sé"><span>No sé</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend class="field__label">¿Siguen teniendo colores definidos?</legend>
+            <p class="hint hint--tight">En el relevamiento anterior nos contaron que sí. Confirmalo acá si sigue siendo así.</p>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="colores" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="colores" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="colores" value="No sé"><span>No sé</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field" id="g-codigos">
+            <label class="field__label" for="f-codigos">Pegá los códigos de color <span class="opt-note">(si los sabés)</span></label>
+            <input id="f-codigos" name="codigos_color" type="text" autocomplete="off">
+            <p class="hint">Tipo #00313E. Si no los tenés a mano no pasa nada, al final te los pedimos por WhatsApp.</p>
+          </div>
+
+          <p class="note">El logo (archivo original o una foto nítida), el manual y los códigos los mandás al final por WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 3: documentación ============ -->
+    <section class="step" data-step="3" aria-labelledby="t3" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t3" tabindex="-1">Estatuto y reglamento</h2>
+          <p class="step__hint">Nos sirven para la parte institucional de la web. Si los tienen en PDF, los adjuntás al final con el logo.</p>
+
+          <fieldset class="field">
+            <legend class="field__label">¿Tienen el estatuto en PDF?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="estatuto" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="estatuto" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="estatuto" value="Lo mandamos después"><span>Lo mandamos después</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend class="field__label">¿Tienen el reglamento interno?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="reglamento" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="reglamento" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="reglamento" value="Lo mandamos después"><span>Lo mandamos después</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 4: textos base ============ -->
+    <section class="step" data-step="4" aria-labelledby="t4" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t4" tabindex="-1">Los textos de la web</h2>
+          <p class="step__hint">No hace falta que quede perfecto. Con lo que tengan a mano alcanza; lo que falte lo escribimos nosotros con lo que nos cuenten.</p>
+
+          <div class="field">
+            <label class="field__label" for="f-mision">Misión <span class="opt-note">(opcional)</span></label>
+            <textarea id="f-mision" name="mision" rows="4"></textarea>
+            <p class="hint">Si ya está escrita, pegala tal cual.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-vision">Visión <span class="opt-note">(opcional)</span></label>
+            <textarea id="f-vision" name="vision" rows="4"></textarea>
+            <p class="hint">Lo que la asociación quiere lograr o hacia dónde va.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-historia">Un poco de historia <span class="opt-note">(opcional)</span></label>
+            <textarea id="f-historia" name="historia" rows="4"></textarea>
+            <p class="hint">¿Cuándo se fundó la asociación? ¿Cuántos son hoy? Dos o tres líneas alcanzan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 5: comisión directiva ============ -->
+    <section class="step" data-step="5" aria-labelledby="t5" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t5" tabindex="-1">La comisión directiva</h2>
+          <p class="step__hint">Cargá un integrante por fila, con el cargo de cada uno. Si son muchos, completá los primeros y mandanos el resto por WhatsApp.</p>
+
+          <div class="rows" data-rows="comision"></div>
+          <p class="rows-empty" data-empty="comision" hidden>Todavía no cargaste a nadie.</p>
+          <button type="button" class="btn btn--ghost btn--add" data-add="comision"><span aria-hidden="true">+</span> Agregar integrante</button>
+
+          <fieldset class="field field--after-rows">
+            <legend class="field__label">La comisión directiva no quedó marcada en el formulario anterior. ¿La mostramos en la web?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="comision_mostrar" value="Sí, la mostramos"><span>Sí, la mostramos</span></label>
+              <label class="opt"><input type="radio" name="comision_mostrar" value="No, mejor no"><span>No, mejor no</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 6: videos y clases ============ -->
+    <section class="step" data-step="6" aria-labelledby="t6" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t6" tabindex="-1">Clases y videos</h2>
+          <p class="step__hint">Cargá los videos o clases que quieran publicar. Si el archivo es pesado, con el link de Drive alcanza.</p>
+
+          <div class="rows" data-rows="videos"></div>
+          <p class="rows-empty" data-empty="videos" hidden>Todavía no cargaste ningún video.</p>
+          <button type="button" class="btn btn--ghost btn--add" data-add="videos"><span aria-hidden="true">+</span> Agregar video</button>
+
+          <fieldset class="field field--after-rows">
+            <legend class="field__label">¿Tenemos el OK de los disertantes para publicar las clases?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="disertantes_ok" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="disertantes_ok" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="disertantes_ok" value="Hay que pedirlo"><span>Hay que pedirlo</span></label>
+            </div>
+            <p class="hint">Si hay que pedirlo, lo resolvemos antes de publicar cualquier clase.</p>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 7: próximo evento ============ -->
+    <section class="step" data-step="7" aria-labelledby="t7" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t7" tabindex="-1">El próximo evento</h2>
+          <p class="step__hint">Si ya tienen fecha, lo dejamos anunciado en la web desde el primer día. Si todavía no hay nada agendado, dejalo en blanco.</p>
+
+          <div class="field">
+            <label class="field__label" for="f-evento-nombre">Nombre del evento <span class="opt-note">(opcional)</span></label>
+            <input id="f-evento-nombre" name="evento_nombre" type="text" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-evento-fecha">Fecha <span class="opt-note">(opcional)</span></label>
+            <input id="f-evento-fecha" name="evento_fecha" type="date">
+            <p class="hint">Tocá el campo para elegir la fecha del calendario.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-evento-lugar">Lugar <span class="opt-note">(opcional)</span></label>
+            <input id="f-evento-lugar" name="evento_lugar" type="text" autocomplete="off">
+            <p class="hint">Ciudad, sede o dirección. Por ejemplo: Sede de la asociación, CABA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 8: redes y alcance ============ -->
+    <section class="step" data-step="8" aria-labelledby="t8" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t8" tabindex="-1">Redes y alcance</h2>
+          <p class="step__hint">Así la web queda conectada con lo que la asociación ya usa hoy.</p>
+
+          <fieldset class="field">
+            <legend class="field__label">¿Tienen Instagram o Facebook de la asociación?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="redes_tiene" value="Sí"><span>Sí</span></label>
+              <label class="opt"><input type="radio" name="redes_tiene" value="No"><span>No</span></label>
+              <label class="opt"><input type="radio" name="redes_tiene" value="Todavía no"><span>Todavía no</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field" id="g-redes-usuario" hidden>
+            <label class="field__label" for="f-redes-usuario">Usuario o link <span class="opt-note">(opcional)</span></label>
+            <input id="f-redes-usuario" name="redes_usuario" type="text" autocomplete="off">
+            <p class="hint">Pegá el usuario o el link, con coma si son dos. Por ejemplo: @asociacion, facebook.com/asociacion.</p>
+          </div>
+
+          <fieldset class="field">
+            <legend class="field__label">La web, ¿le habla a toda la Argentina o más que nada a CABA?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="alcance" value="Argentina entera"><span>Argentina entera</span></label>
+              <label class="opt"><input type="radio" name="alcance" value="Más que nada CABA"><span>Más que nada CABA</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 9: posicionamiento ============ -->
+    <section class="step" data-step="9" aria-labelledby="t9" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t9" tabindex="-1">La primera impresión</h2>
+          <p class="step__hint">Pensalo desde el lugar del colega que llega a la web por primera vez.</p>
+
+          <div class="field">
+            <label class="field__label" for="f-posicionamiento">Cuando un colega ecuatoriano entra por primera vez a la web, ¿qué querés que piense? <span class="opt-note">(opcional)</span></label>
+            <textarea id="f-posicionamiento" name="posicionamiento" rows="5"></textarea>
+            <p class="hint">Una o dos frases alcanzan. Si lo tenés a mano, escribilo; si no, lo pensamos juntos después.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 10: revisión y envío ============ -->
+    <section class="step" data-step="10" aria-labelledby="t10" hidden>
+      <div class="shell">
+        <div class="shell__core">
+          <h2 class="step__title" id="t10" tabindex="-1">Revisá y enviá</h2>
+          <p class="step__hint">Este es el resumen de lo que completaste. Podés editar cualquier parte antes de enviar.</p>
+
+          <div id="resumen" class="resumen"></div>
+
+          <p class="note">Cuando envíes, te llevamos a WhatsApp para que mandes los archivos: el logo, el estatuto, los códigos de color o el manual de marca, y las fotos de actividades. Lo que completaste lo vemos solo nosotros, para armar la web.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GRACIAS ============ -->
+    <section class="step" data-step="gracias" aria-labelledby="tg" hidden>
+      <div class="colorblock on-ink">
+        <p class="colorblock__org">Último paso</p>
+        <h2 id="tg" class="colorblock__title" tabindex="-1">¡Listo, nos llegó todo!</h2>
+        <p class="colorblock__lead">Ya tenemos lo que necesitábamos para arrancar con la web de la asociación. Gracias por el tiempo.</p>
+        <p class="colorblock__lead">Ahora falta lo más importante. Por WhatsApp mandanos:</p>
+        <ul class="colorblock__list">
+          <li>El logo en su archivo original (si tenés una foto nítida, también sirve).</li>
+          <li>El estatuto en PDF.</li>
+          <li>Los códigos de color o el manual de marca, si lo tienen.</li>
+          <li>Las fotos de actividades que tengan, aunque sean pocas.</li>
+        </ul>
+
+        <a id="wa-link" class="btn btn--paper btn--wide" href="#" target="_blank" rel="noopener">
+          <span>Abrir WhatsApp</span>
+          <span class="btn__icon" aria-hidden="true">&#8594;</span>
+        </a>
+        <p class="colorblock__fine">Se abre con un mensaje ya escrito. Solo tenés que adjuntar los archivos.</p>
+        <p class="colorblock__fine" id="wa-fallback-note" hidden>El resumen de lo que completaste va incluido en el mensaje, así nos llega igual.</p>
+      </div>
+
+      <div class="shell">
+        <div class="shell__core">
+          <p class="note note--plain">Podés volver a este link cuando quieras si te falta algo o si querés corregir una respuesta. Todo queda guardado.</p>
+          <button type="button" class="btn btn--ghost" id="btn-review">Revisar mis respuestas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación entre pasos (siempre a mano, tipo barra inferior en el celular) -->
+    <div class="stepnav" id="stepnav">
+      <div class="stepnav__inner">
+        <button type="button" class="btn btn--ghost" id="btn-back" hidden>Atrás</button>
+        <button type="button" class="btn btn--primary" id="btn-next">
+          <span id="btn-next-label">Siguiente</span>
+          <span class="btn__icon" aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Kit de arranque - Asociación de Medicina Respiratoria de Ecuatorianos en Argentina</p>
+    <p id="footer-contacto" hidden><a id="footer-wa" href="#" target="_blank" rel="noopener">¿Alguna duda con el kit? Escribinos por WhatsApp.</a></p>
+  </footer>
+
+  <!-- Plantillas de filas dinámicas (se clonan desde app.js) -->
+  <template id="tpl-comision">
+    <div class="row-row row-row--comision">
+      <div class="row-row__head">
+        <span class="row-row__num"></span>
+        <button type="button" class="btn-remove" data-remove>Quitar</button>
+      </div>
+      <div class="row-row__fields">
+        <label class="row-field">
+          <span class="row-field__label">Nombre y apellido</span>
+          <input type="text" data-col="nombre" autocomplete="off">
+        </label>
+        <label class="row-field">
+          <span class="row-field__label">Cargo</span>
+          <input type="text" data-col="cargo" autocomplete="off">
+        </label>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-videos">
+    <div class="row-row row-row--video">
+      <div class="row-row__head">
+        <span class="row-row__num"></span>
+        <button type="button" class="btn-remove" data-remove>Quitar</button>
+      </div>
+      <div class="row-row__fields">
+        <label class="row-field">
+          <span class="row-field__label">Título o actividad</span>
+          <input type="text" data-col="titulo" autocomplete="off">
+        </label>
+        <label class="row-field">
+          <span class="row-field__label">Fecha aproximada</span>
+          <input type="text" data-col="fecha" autocomplete="off" placeholder="Por ejemplo: marzo 2025">
+        </label>
+        <label class="row-field">
+          <span class="row-field__label">Quién disertó</span>
+          <input type="text" data-col="disertante" autocomplete="off">
+        </label>
+        <label class="row-field row-field--link">
+          <span class="row-field__label">Link de Drive <span class="opt-note">(opcional)</span></span>
+          <input type="text" data-col="link" inputmode="url" autocomplete="off">
+        </label>
+      </div>
+    </div>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
