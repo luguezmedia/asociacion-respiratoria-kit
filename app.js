@@ -549,7 +549,7 @@
     // Si el envío al formulario no está configurado o falló, el resumen viaja acá.
     if (!sent) {
       var resumen = buildResumen();
-      var max = 1200;
+      var max = 3000;
       if (resumen.length > max) resumen = resumen.slice(0, max) + ' [...]';
       text += '\n\n---\n' + resumen;
     }
